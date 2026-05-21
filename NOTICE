@@ -1,0 +1,12 @@
+GEO Plugin
+Copyright 2024 Tim Reznicek
+Licensed under the MIT License (see LICENSE).
+
+---
+
+This software uses the following third-party library at runtime via CDN:
+
+IGV.js
+Copyright 2016-2024 The Broad Institute
+Licensed under the MIT License
+https://github.com/igvteam/igv.js
