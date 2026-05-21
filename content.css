@@ -109,7 +109,8 @@
   padding: 0;
 }
 
-#geo-plugin-list a {
+/* Simple link — non-GSE accessions (GSM, GPL, GDS, GSL) */
+.geo-plugin-link {
   display: block;
   padding: 10px 20px;
   color: #7ab8ff;
@@ -120,8 +121,244 @@
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-#geo-plugin-list a:hover {
+.geo-plugin-link:hover {
   background-color: rgba(255, 255, 255, 0.08);
   color: #aad4ff;
   text-decoration: underline;
+}
+
+/* GSE expandable node */
+.geo-plugin-gse-node {
+  display: flex;
+  flex-direction: column;
+}
+
+.geo-plugin-gse-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+}
+
+.geo-plugin-gse-row .geo-plugin-link {
+  padding: 4px 0;
+  flex: 1;
+}
+
+.geo-plugin-expand {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #aaaaaa;
+  font-size: 9px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+
+.geo-plugin-expand:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.geo-plugin-expand:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Collapsible tree content */
+.geo-plugin-tree {
+  display: none;
+  padding: 4px 20px 10px 48px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0 20px 4px 39px;
+}
+
+.geo-plugin-tree.geo-plugin-open {
+  display: block;
+}
+
+.geo-plugin-tree-title {
+  font-size: 12px;
+  color: #999999;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.geo-plugin-section {
+  margin-bottom: 10px;
+}
+
+.geo-plugin-section-label {
+  font-size: 10px;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+
+.geo-plugin-sub-link {
+  display: block;
+  color: #7ab8ff;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: "Consolas", "Menlo", "Monaco", monospace;
+  letter-spacing: 0.3px;
+  padding: 2px 0;
+  transition: color 0.15s ease;
+}
+
+.geo-plugin-sub-link:hover {
+  color: #aad4ff;
+  text-decoration: underline;
+}
+
+.geo-plugin-view-all {
+  display: block;
+  font-size: 11px;
+  color: #666666;
+  text-decoration: none;
+  margin-top: 5px;
+  transition: color 0.15s ease;
+}
+
+.geo-plugin-view-all:hover {
+  color: #999999;
+  text-decoration: underline;
+}
+
+.geo-plugin-loading {
+  font-size: 12px;
+  color: #666666;
+  font-style: italic;
+}
+
+.geo-plugin-error {
+  font-size: 12px;
+  color: #ff8888;
+}
+
+.geo-plugin-error a {
+  color: #7ab8ff;
+  text-decoration: none;
+}
+
+.geo-plugin-error a:hover {
+  text-decoration: underline;
+}
+
+/* ── GSM nodes ─────────────────────────────────────────────────────────── */
+
+.geo-plugin-expand-sm {
+  font-size: 8px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+}
+
+.geo-plugin-gsm-node {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 3px 0;
+}
+
+.geo-plugin-gsm-content {
+  display: none;
+  width: 100%;
+  padding-left: 22px;
+  padding-bottom: 4px;
+}
+
+.geo-plugin-gsm-content.geo-plugin-open {
+  display: block;
+}
+
+/* ── BigWig file rows ───────────────────────────────────────────────────── */
+
+.geo-plugin-bigwig-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.geo-plugin-bw-checkbox {
+  cursor: pointer;
+  accent-color: #4a9eff;
+  flex-shrink: 0;
+}
+
+.geo-plugin-bw-label {
+  font-size: 11px;
+  color: #bbbbbb;
+  cursor: pointer;
+  word-break: break-all;
+  font-family: "Consolas", "Menlo", "Monaco", monospace;
+  letter-spacing: 0.2px;
+}
+
+.geo-plugin-bw-label:hover {
+  color: #dddddd;
+}
+
+/* ── Small action buttons ───────────────────────────────────────────────── */
+
+.geo-plugin-btn-sm {
+  font-size: 10px;
+  background: #2a2a3e;
+  color: #999999;
+  border: 1px solid #444444;
+  border-radius: 3px;
+  padding: 2px 7px;
+  cursor: pointer;
+  margin-top: 4px;
+  display: block;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.geo-plugin-btn-sm:hover {
+  color: #dddddd;
+  border-color: #666666;
+}
+
+/* ── Cart footer ────────────────────────────────────────────────────────── */
+
+#geo-plugin-cart-footer {
+  /* display toggled to flex by JS when cart is non-empty */
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #12121e;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+#geo-plugin-cart-count {
+  font-size: 12px;
+  color: #aaaaaa;
+}
+
+.geo-plugin-igv-btn {
+  background: #4a9eff;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.15s ease;
+}
+
+.geo-plugin-igv-btn:hover {
+  background: #2a7edf;
 }
