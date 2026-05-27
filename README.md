@@ -4,6 +4,12 @@ A Chrome browser extension that detects **GEO accession numbers** on research jo
 
 ---
 
+![Identify Journal with GEO Accession](.github/assets/plugin_1.png)
+
+![Fill cart with geneome tracks](.github/assets/plugin_2.png)
+
+![Visualize with IGV web browser](.github/assets/plugin_3.png)
+
 ## Purpose
 
 Genomics researchers frequently encounter GEO accession numbers (GSE, GSM, GPL, GDS, GSL) embedded in journal articles, preprints, and supplementary materials. Navigating from a citation to the actual data on NCBI requires multiple clicks and context switches. GEO Plugin eliminates that friction by:
