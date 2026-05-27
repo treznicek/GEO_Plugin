@@ -1,0 +1,59 @@
+# ── OS-generated files ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── IDE and editor configs ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.editorconfig.local
+
+# ── Node / npm (not currently used, included for safety) ─────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnp/
+.pnp.js
+
+# ── Build artifacts ───────────────────────────────────────────────────────────
+dist/
+build/
+out/
+*.zip
+*.tar.gz
+
+# ── Chrome extension packaging ────────────────────────────────────────────────
+# Private key used to sign the extension — never commit this
+*.pem
+# Packaged extension archive
+*.crx
+
+# ── Environment variables ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Temporary files ───────────────────────────────────────────────────────────
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig

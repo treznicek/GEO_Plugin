@@ -1,0 +1,26 @@
+# CODEOWNERS
+#
+# Each line is a pattern followed by one or more GitHub usernames or teams.
+# The last matching pattern takes precedence.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for all files
+* @treznicek
+
+# Extension core — content script and styles
+/content.js   @treznicek
+/content.css  @treznicek
+/manifest.json @treznicek
+
+# Icons
+/icons/ @treznicek
+
+# Legal and licensing
+/LICENSE       @treznicek
+/NOTICE        @treznicek
+
+# Documentation
+*.md           @treznicek
+
+# Repository configuration
+/.github/      @treznicek

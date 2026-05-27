@@ -1,0 +1,45 @@
+name: PR Size Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  size-check:
+    name: Enforce 300-line change limit
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Count lines changed
+        id: diff
+        run: |
+          # Count insertions + deletions, excluding documentation and config files
+          LINES=$(git diff --numstat origin/${{ github.base_ref }}...HEAD \
+            -- '*.js' '*.css' '*.json' '*.html' \
+            | awk '{add+=$1; del+=$2} END {print add+del+0}')
+
+          echo "lines=$LINES" >> "$GITHUB_OUTPUT"
+          echo "Lines changed in source files: $LINES"
+
+      - name: Warn if approaching limit
+        if: ${{ fromJson(steps.diff.outputs.lines) > 200 && fromJson(steps.diff.outputs.lines) <= 300 }}
+        run: |
+          echo "::warning::This PR changes ${{ steps.diff.outputs.lines }} lines — approaching the 300-line limit. Consider splitting if adding more changes."
+
+      - name: Fail if over limit
+        if: ${{ fromJson(steps.diff.outputs.lines) > 300 }}
+        run: |
+          echo "::error::This PR changes ${{ steps.diff.outputs.lines }} lines in source files, exceeding the 300-line limit."
+          echo ""
+          echo "To keep PRs reviewable and focused:"
+          echo "  - Split the work into smaller, independently mergeable branches"
+          echo "  - Each branch should address one concern (one feature, one fix)"
+          echo "  - Documentation-only changes (.md, NOTICE, LICENSE) are excluded from the count"
+          echo ""
+          echo "Run locally to check your own diff:"
+          echo "  git diff --numstat origin/main | awk '{add+=\$1; del+=\$2} END {print add+del}'"
+          exit 1
