@@ -6,7 +6,7 @@ on:
 
 jobs:
   size-check:
-    name: Enforce 300-line change limit
+    name: PR Size Check
     runs-on: ubuntu-latest
 
     steps:
